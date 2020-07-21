@@ -22,7 +22,8 @@ export default function Pad() {
             <DigitButton digit={3} />
             <OperationButton operation={"+"}/>
             <DigitButton digit={0} />
-            <DigitButton digit={.0} />
+            <DigitButton digit={"00"} />
+            <DigitButton digit={"."} />
             <OperationButton operation={"="}/>
         </div>
     )
