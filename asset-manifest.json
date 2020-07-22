@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/simpleReactCalculator/static/css/main.3a8f4be2.chunk.css",
+    "main.js": "/simpleReactCalculator/static/js/main.12816aa9.chunk.js",
+    "main.js.map": "/simpleReactCalculator/static/js/main.12816aa9.chunk.js.map",
+    "runtime-main.js": "/simpleReactCalculator/static/js/runtime-main.5ec3c6fc.js",
+    "runtime-main.js.map": "/simpleReactCalculator/static/js/runtime-main.5ec3c6fc.js.map",
+    "static/js/2.6a1a2fd4.chunk.js": "/simpleReactCalculator/static/js/2.6a1a2fd4.chunk.js",
+    "static/js/2.6a1a2fd4.chunk.js.map": "/simpleReactCalculator/static/js/2.6a1a2fd4.chunk.js.map",
+    "index.html": "/simpleReactCalculator/index.html",
+    "precache-manifest.a184d7fe92bc19da259313998357ac1e.js": "/simpleReactCalculator/precache-manifest.a184d7fe92bc19da259313998357ac1e.js",
+    "service-worker.js": "/simpleReactCalculator/service-worker.js",
+    "static/css/main.3a8f4be2.chunk.css.map": "/simpleReactCalculator/static/css/main.3a8f4be2.chunk.css.map",
+    "static/js/2.6a1a2fd4.chunk.js.LICENSE.txt": "/simpleReactCalculator/static/js/2.6a1a2fd4.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5ec3c6fc.js",
+    "static/js/2.6a1a2fd4.chunk.js",
+    "static/css/main.3a8f4be2.chunk.css",
+    "static/js/main.12816aa9.chunk.js"
+  ]
+}
