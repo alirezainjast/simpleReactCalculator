@@ -10,8 +10,14 @@ const Counter = (state = initState, { type, payload }) => {
     switch (type) {
 
     case 'ADD_TO_DISPLAY':
-        payload = parseInt(state.display+payload)
-        return { ...state, display: payload }
+        if(payload === '.'){
+            payload = state.display+payload
+            return { ...state, display: payload }
+        }
+        else{
+            payload = parseFloat(state.display+payload)
+            return { ...state, display: payload }
+        }
     case 'DARSAD':
         return { ...state, display: tmpState.display/100}
     case 'CLEAR':

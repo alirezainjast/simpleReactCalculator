@@ -24,7 +24,8 @@ class Pad extends Component {
 
     // handle keybord events
     keyHandler = (e) =>{
-        if(e.key >= 1 && e.key <= 9) this.props.addToDisplay(e.key)
+        console.log(e.key)
+        if((e.key >= 0 && e.key <= 9) || e.key === '.' ) this.props.addToDisplay(e.key)
         else{
             let operaton = e.key;
             console.log(e.key)
