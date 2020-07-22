@@ -24,15 +24,11 @@ class Pad extends Component {
 
     // handle keybord events
     keyHandler = (e) =>{
-        console.log(e.key)
         if((e.key >= 0 && e.key <= 9) || e.key === '.' ) this.props.addToDisplay(e.key)
         else{
             let operaton = e.key;
-            console.log(e.key)
-            if(operaton === "Escape") this.props.clear()
             if(operaton === "Backspace") this.props.clear2()
             if(operaton === "%") this.props.darsad()
-            if(operaton === "Enter") this.props.result()
             if(operaton === "+") this.props.sum(operaton)
             if(operaton === "-") this.props.minus(operaton)
             if(operaton === "*") this.props.multiply(operaton)
@@ -40,8 +36,14 @@ class Pad extends Component {
         }
     }
 
+    keyHandler2 = (e) =>{
+        let operaton = e.key;
+        if(operaton === "Escape") this.props.clear()
+        if(operaton === "Enter") this.props.result()
+    }
     componentDidMount(){
         document.addEventListener('keydown', this.keyHandler);
+        document.addEventListener('keypress', this.keyHandler2);
     }
     
     
