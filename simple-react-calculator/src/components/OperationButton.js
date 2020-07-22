@@ -1,9 +1,9 @@
 import React from 'react'
 
-const OperationButton = ({ operation }) =>{
+const OperationButton = ({ operation, clickHandler }) =>{
     return (
         <div className="operationButton">
-            <button>{operation}</button>
+            <button onClick={() => {clickHandler({operation})}}>{operation}</button>
         </div>
     )
 }
