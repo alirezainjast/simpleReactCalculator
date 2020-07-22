@@ -9,7 +9,7 @@ class Pad extends Component {
         this.props.addToDisplay(digit)
     }
     operatoinClickHandler = (e) =>{
-        let operaton = e.operation;        
+        let operaton = e.operation;
         if(operaton === "C") this.props.clear()
         if(operaton === "CE") this.props.clear2()
         if(operaton === "%") this.props.darsad()
@@ -19,6 +19,27 @@ class Pad extends Component {
         if(operaton === "X") this.props.multiply(operaton)
         if(operaton === "/") this.props.divide(operaton)
     }
+
+    keyHandler = (e) =>{
+        if(e.key >= 1 && e.key <= 9) this.props.addToDisplay(e.key)
+        else{
+            let operaton = e.key;
+            console.log(e.key)
+            if(operaton === "Escape") this.props.clear()
+            if(operaton === "Backspace") this.props.clear2()
+            if(operaton === "%") this.props.darsad()
+            if(operaton === "Enter") this.props.result()
+            if(operaton === "+") this.props.sum(operaton)
+            if(operaton === "-") this.props.minus(operaton)
+            if(operaton === "*") this.props.multiply(operaton)
+            if(operaton === "/") this.props.divide(operaton)
+        }
+    }
+
+    componentDidMount(){
+        document.addEventListener('keydown', this.keyHandler);
+    }
+    
     
     render(){
     return (
