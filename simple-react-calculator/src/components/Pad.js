@@ -1,37 +1,57 @@
 import React, { Component } from 'react'
 import DigitButton from './DigitButton'
 import OperationButton from './OperationButton'
+import { connect } from 'react-redux'
 
 class Pad extends Component {
-    clickHandler = (e) =>{
-        console.log(e)
+    digitClickHandler = (e) =>{
+        const digit = e.digit
+        this.props.addToDisplay(digit)
     }
+    operatoinClickHandler = (e) =>{
+        let operaton = e.operation;
+        if(operaton === "C") this.props.clear()
+    }
+    
     render(){
     return (
         <div className="pad">
-            <OperationButton clickHandler={this.clickHandler} operation={"C"}/>
-            <OperationButton clickHandler={this.clickHandler} operation={"CE"}/>
-            <OperationButton clickHandler={this.clickHandler} operation={"%"}/>
-            <OperationButton clickHandler={this.clickHandler} operation={"/"}/>
-            <DigitButton clickHandler={this.clickHandler} digit={"7"} />
-            <DigitButton clickHandler={this.clickHandler} digit={"8"} />
-            <DigitButton clickHandler={this.clickHandler} digit={"9"} />
-            <OperationButton clickHandler={this.clickHandler} operation={"X"}/>
-            <DigitButton clickHandler={this.clickHandler} digit={"4"} />
-            <DigitButton clickHandler={this.clickHandler} digit={"5"} />
-            <DigitButton clickHandler={this.clickHandler} digit={"6"} />
-            <OperationButton clickHandler={this.clickHandler} operation={"-"}/>
-            <DigitButton clickHandler={this.clickHandler} digit={"1"} />
-            <DigitButton clickHandler={this.clickHandler} digit={"2"} />
-            <DigitButton clickHandler={this.clickHandler} digit={"3"} />
-            <OperationButton clickHandler={this.clickHandler} operation={"+"}/>
-            <DigitButton clickHandler={this.clickHandler} digit={"0"} />
-            <DigitButton clickHandler={this.clickHandler} digit={"00"} />
-            <DigitButton clickHandler={this.clickHandler} digit={"."} />
-            <OperationButton clickHandler={this.clickHandler} operation={"="}/>
+            <OperationButton operatoinClickHandler={this.operatoinClickHandler} operation={"C"}/>
+            <OperationButton operatoinClickHandler={this.operatoinClickHandler} operation={"CE"}/>
+            <OperationButton operatoinClickHandler={this.operatoinClickHandler} operation={"%"}/>
+            <OperationButton operatoinClickHandler={this.operatoinClickHandler} operation={"/"}/>
+            <DigitButton digitClickHandler={this.digitClickHandler} digit={"7"} />
+            <DigitButton digitClickHandler={this.digitClickHandler} digit={"8"} />
+            <DigitButton digitClickHandler={this.digitClickHandler} digit={"9"} />
+            <OperationButton operatoinClickHandler={this.operatoinClickHandler} operation={"X"}/>
+            <DigitButton digitClickHandler={this.digitClickHandler} digit={"4"} />
+            <DigitButton digitClickHandler={this.digitClickHandler} digit={"5"} />
+            <DigitButton digitClickHandler={this.digitClickHandler} digit={"6"} />
+            <OperationButton operatoinClickHandler={this.operatoinClickHandler} operation={"-"}/>
+            <DigitButton digitClickHandler={this.digitClickHandler} digit={"1"} />
+            <DigitButton digitClickHandler={this.digitClickHandler} digit={"2"} />
+            <DigitButton digitClickHandler={this.digitClickHandler} digit={"3"} />
+            <OperationButton operatoinClickHandler={this.operatoinClickHandler} operation={"+"}/>
+            <DigitButton digitClickHandler={this.digitClickHandler} digit={"0"} />
+            <DigitButton digitClickHandler={this.digitClickHandler} digit={"00"} />
+            <DigitButton digitClickHandler={this.digitClickHandler} digit={"."} />
+            <OperationButton operatoinClickHandler={this.operatoinClickHandler} operation={"="}/>
         </div>
     )
 }
 }
 
-export default Pad
+const mapStateToProps = (state) =>{
+    return{
+        display: state
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+      addToDisplay: (payload) => { dispatch({ type: 'ADD_TO_DISPLAY', payload: payload}) },
+      clear: (payload) => { dispatch({type: "CLEAR"})}
+    }
+  }
+
+export default connect(mapStateToProps,mapDispatchToProps)(Pad)

@@ -1,9 +1,9 @@
 import React from 'react'
 
-const DigitButton = ({ digit, clickHandler }) =>{
+const DigitButton = ({ digit, digitClickHandler }) =>{
     return (
         <div className="digitButton">
-            <button onClick={() => {clickHandler({digit})}}>{digit}</button>
+            <button onClick={() => {digitClickHandler({digit})}}>{digit}</button>
         </div>
     )
 }
