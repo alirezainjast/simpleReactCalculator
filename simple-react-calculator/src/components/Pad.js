@@ -9,8 +9,15 @@ class Pad extends Component {
         this.props.addToDisplay(digit)
     }
     operatoinClickHandler = (e) =>{
-        let operaton = e.operation;
+        let operaton = e.operation;        
         if(operaton === "C") this.props.clear()
+        if(operaton === "CE") this.props.clear2()
+        if(operaton === "%") this.props.darsad()
+        if(operaton === "=") this.props.result()
+        if(operaton === "+") this.props.sum(operaton)
+        if(operaton === "-") this.props.minus(operaton)
+        if(operaton === "X") this.props.multiply(operaton)
+        if(operaton === "/") this.props.divide(operaton)
     }
     
     render(){
@@ -43,14 +50,21 @@ class Pad extends Component {
 
 const mapStateToProps = (state) =>{
     return{
-        display: state
+        state: state
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
       addToDisplay: (payload) => { dispatch({ type: 'ADD_TO_DISPLAY', payload: payload}) },
-      clear: (payload) => { dispatch({type: "CLEAR"})}
+      darsad: (payload) => { dispatch({ type: 'DARSAD', payload: payload}) },
+      clear: () => { dispatch({type: "CLEAR"})},
+      clear2: () => { dispatch({type: "CLEAR2"})},
+      sum: (payload) => { dispatch({type: "SUM", payload: payload})},
+      result: () => { dispatch({type: "RESULT"})},
+      minus: (payload) => { dispatch({type: "MINUS", payload: payload})},
+      multiply: (payload) => { dispatch({type: "MULTIPLY",  payload: payload})},
+      divide: (payload) => { dispatch({type: "DIVIDE",  payload: payload})}
     }
   }
 
