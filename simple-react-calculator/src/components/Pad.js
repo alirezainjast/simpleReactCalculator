@@ -4,6 +4,8 @@ import OperationButton from './OperationButton'
 import { connect } from 'react-redux'
 
 class Pad extends Component {
+
+    // handle click events
     digitClickHandler = (e) =>{
         const digit = e.digit
         this.props.addToDisplay(digit)
@@ -20,6 +22,7 @@ class Pad extends Component {
         if(operaton === "/") this.props.divide(operaton)
     }
 
+    // handle keybord events
     keyHandler = (e) =>{
         if(e.key >= 1 && e.key <= 9) this.props.addToDisplay(e.key)
         else{
@@ -43,6 +46,8 @@ class Pad extends Component {
     
     render(){
     return (
+        // this is our pad
+        // made with 2 type of button(digit and operation)
         <div className="pad">
             <OperationButton operatoinClickHandler={this.operatoinClickHandler} operation={"C"}/>
             <OperationButton operatoinClickHandler={this.operatoinClickHandler} operation={"CE"}/>
@@ -69,12 +74,14 @@ class Pad extends Component {
 }
 }
 
+// subscripe to store
 const mapStateToProps = (state) =>{
     return{
         state: state
     }
 }
 
+// actions
 const mapDispatchToProps = (dispatch) => {
     return {
       addToDisplay: (payload) => { dispatch({ type: 'ADD_TO_DISPLAY', payload: payload}) },
